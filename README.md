@@ -169,8 +169,7 @@ The application exposes several REST endpoints:
 
 ## 🔍 Project Structure
 
-```
-OnyxAI/
+``` OnyxAI/
 ├── src/
 │   ├── app/
 │   │   ├── page.tsx          # Main page component
