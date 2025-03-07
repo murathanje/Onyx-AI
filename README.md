@@ -168,6 +168,7 @@ The application exposes several REST endpoints:
   - Gas optimization suggestions
 
 ## 🔍 Project Structure
+
 ```
 OnyxAI/
 ├── src/
