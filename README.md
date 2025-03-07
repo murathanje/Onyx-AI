@@ -1,5 +1,23 @@
 # OnyxAI - MultiversX Blockchain AI Assistant
 
+<div align="center">
+  <img src="public/logo.png" alt="OnyxAI Logo" width="200"/>
+
+  <p align="center">
+    <img src="https://img.shields.io/badge/Next.js-15.2.0-black?style=for-the-badge&logo=next.js" alt="Next.js" />
+    <img src="https://img.shields.io/badge/React-19.0.0-blue?style=for-the-badge&logo=react" alt="React" />
+    <img src="https://img.shields.io/badge/TypeScript-5.0.0-blue?style=for-the-badge&logo=typescript" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/TailwindCSS-4.0.0-38B2AC?style=for-the-badge&logo=tailwind-css" alt="TailwindCSS" />
+    <img src="https://img.shields.io/badge/MultiversX-SDK-23C1E1?style=for-the-badge&logo=elrond" alt="MultiversX" />
+  </p>
+  
+  <p align="center">
+    <img src="https://img.shields.io/badge/LangChain-0.3.19-green?style=for-the-badge&logo=chainlink" alt="LangChain" />
+    <img src="https://img.shields.io/badge/OpenAI-GPT--4-412991?style=for-the-badge&logo=openai" alt="OpenAI" />
+    <img src="https://img.shields.io/badge/Pinecone-5.1.0-blue?style=for-the-badge&logo=pinecone" alt="Pinecone" />
+  </p>
+</div>
+
 OnyxAI is a cutting-edge AI-powered assistant developed specifically for the MultiversX blockchain ecosystem. It enables users to analyze blockchain data, examine smart contracts, and monitor network statistics through an intuitive interface powered by advanced natural language processing.
 
 ## 🎯 Overview
