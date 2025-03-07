@@ -1,7 +1,7 @@
 # OnyxAI - MultiversX Blockchain AI Assistant
 
 <div align="center">
-  <img src="public/logo.png" alt="OnyxAI Logo" width="200"/>
+  <img src="public/logo.png" alt="OnyxAI Logo" width="800"/>
 
   <p align="center">
     <img src="https://img.shields.io/badge/Next.js-15.2.0-black?style=for-the-badge&logo=next.js" alt="Next.js" />
