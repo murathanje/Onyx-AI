@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server';
-import { ChatOpenAI } from '@langchain/openai';
 import { initializeAgentExecutorWithOptions } from 'langchain/agents';
 import { DynamicTool } from '@langchain/core/tools';
+import { ChatGoogleGenerativeAI } from '@langchain/google-genai';
 import { queryVectorStore } from '@/utils/rag';
 
-// MultiversX API araçlarını oluştur
+// MultiversX API tools
 const getAccountDetails = new DynamicTool({
   name: 'get_account_details',
   description: 'Use this tool to get account details. Requires an address parameter.',
@@ -58,14 +58,15 @@ export async function POST(req: Request) {
   try {
     const { message } = await req.json();
 
-    // OpenAI modelini başlat
-    const model = new ChatOpenAI({
-      openAIApiKey: process.env.OPENAI_API_KEY,
-      modelName: 'gpt-4',
-      temperature: 0,
+    // Initialize Gemini model
+    const model = new ChatGoogleGenerativeAI({
+      modelName: 'gemini-2.0-flash',
+      maxOutputTokens: 2048,
+      temperature: 0.7,
+      apiKey: process.env.GOOGLE_API_KEY,
     });
 
-    // Agent'ı oluştur
+    // Create agent
     const executor = await initializeAgentExecutorWithOptions(
       [
         getAccountDetails,
@@ -76,14 +77,17 @@ export async function POST(req: Request) {
       ],
       model,
       {
-        agentType: 'openai-functions',
+        agentType: 'chat-conversational-react-description',
         verbose: true,
+        handleParsingErrors: true,
+        maxIterations: 3,
       }
     );
 
-    // Agent'ı çalıştır
+    // Run agent
     const result = await executor.invoke({
-      input: `You are a helpful MultiversX blockchain assistant. Please answer the following question using the available tools. If the question is about MultiversX features, technology, or general information, use the get_website_info tool to get relevant context. Question: ${message}`,
+      input: message,
+      chat_history: [],
     });
 
     return NextResponse.json({ response: result.output });

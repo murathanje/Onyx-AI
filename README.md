@@ -13,7 +13,7 @@
   
   <p align="center">
     <img src="https://img.shields.io/badge/LangChain-0.3.19-green?style=for-the-badge&logo=chainlink" alt="LangChain" />
-    <img src="https://img.shields.io/badge/OpenAI-GPT--4-412991?style=for-the-badge&logo=openai" alt="OpenAI" />
+    <img src="https://img.shields.io/badge/Google_Gemini-2.0-4285F4?style=for-the-badge&logo=google" alt="Gemini" />
     <img src="https://img.shields.io/badge/Pinecone-5.1.0-blue?style=for-the-badge&logo=pinecone" alt="Pinecone" />
   </p>
 </div>
@@ -30,7 +30,7 @@ OnyxAI serves as your intelligent companion in the MultiversX ecosystem, providi
 - **Natural Language Processing**
   - Ask questions about MultiversX in plain English
   - Get detailed explanations of complex blockchain concepts
-  - Real-time query processing using advanced AI models
+  - Real-time query processing using Google's Gemini AI model
 
 - **Smart Contract Intelligence**
   - Automated code analysis and security auditing
@@ -70,7 +70,9 @@ OnyxAI serves as your intelligent companion in the MultiversX ecosystem, providi
   - Dark mode support
 
 ### AI/ML Stack
-- **Language Models**: LangChain integration
+- **Language Models**: 
+  - Google Gemini 2.0 Flash
+  - LangChain integration for advanced capabilities
 - **Vector Database**: 
   - Pinecone for efficient similarity search
   - ChromaDB for local development
@@ -144,10 +146,9 @@ Create a `.env` file in the root directory with the following variables:
 
 ```env
 # Required
+GOOGLE_API_KEY=your_google_api_key
 PINECONE_API_KEY=your_pinecone_api_key
-OPENAI_API_KEY=your_langchain_api_key
-
-
+```
 
 ### API Configuration
 The application exposes several REST endpoints:
@@ -234,6 +235,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - MultiversX Ecosystem
+- Google AI Community
 - LangChain Community
 - Open Source Contributors
 - Early Access Users

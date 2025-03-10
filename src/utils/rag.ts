@@ -2,7 +2,8 @@ import axios from 'axios';
 import * as cheerio from 'cheerio';
 import { Document } from '@langchain/core/documents';
 import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter';
-import { OpenAIEmbeddings } from '@langchain/openai';
+import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenerativeAIEmbeddings } from '@langchain/google-genai';
 import { MemoryVectorStore } from 'langchain/vectorstores/memory';
 
 let vectorStore: MemoryVectorStore | null = null;
@@ -28,14 +29,13 @@ async function scrapeWebsite(url: string): Promise<string> {
   }
 }
 
-// İçeriği küçük parçalara böl
+// İçeriği bölümlere ayır
 async function splitContent(content: string): Promise<Document[]> {
   const splitter = new RecursiveCharacterTextSplitter({
     chunkSize: 1000,
     chunkOverlap: 200,
   });
-  
-  return await splitter.createDocuments([content]);
+  return splitter.createDocuments([content]);
 }
 
 // Vektör veritabanını güncelle
@@ -47,8 +47,9 @@ export async function updateVectorStore() {
     // Daha fazla URL eklenebilir
   ];
   
-  const embeddings = new OpenAIEmbeddings({
-    openAIApiKey: process.env.OPENAI_API_KEY,
+  const embeddings = new GoogleGenerativeAIEmbeddings({
+    apiKey: process.env.GOOGLE_API_KEY,
+    modelName: 'embedding-001',
   });
 
   let documents: Document[] = [];
